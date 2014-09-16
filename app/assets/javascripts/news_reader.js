@@ -4,7 +4,11 @@ window.App = {
   Views: {},
   Routers: {},
   initialize: function() {
-    App.Routers.appRouter = new App.Routers.AppRouter($('body') );
+    this.$el = $('<div>').addClass("content");
+    
+    $('body').append(this.$el);
+    
+    App.Routers.appRouter = new App.Routers.AppRouter({ $el: this.$el });
     Backbone.history.start();
   }
 };

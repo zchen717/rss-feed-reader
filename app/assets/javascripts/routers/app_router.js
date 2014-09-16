@@ -1,10 +1,11 @@
 App.Routers.AppRouter = Backbone.Router.extend({
   routes: {
     "": "feedsIndex",
+    "feeds/:id": "feedShow",
   },
   
-  initialize: function ($el) {
-    this.$el = $el;
+  initialize: function (options) {
+    this.$el = options.$el;
   },
   
   feedsIndex: function () {
@@ -15,6 +16,17 @@ App.Routers.AppRouter = Backbone.Router.extend({
     });
     
     this._swapView(index);
+  },
+  
+  feedShow: function (id) {
+    var feed = App.Collections.feeds.getOrFetch(id);
+    
+    var show = new App.Views.FeedShow({
+      model:      feed,
+      collection: feed.entries()
+    });
+    
+    this._swapView(show);
   },
   
   _swapView: function (view) {
