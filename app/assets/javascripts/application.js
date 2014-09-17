@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require underscore
 //= require backbone
+//= require jquery.serializejson
 //= require news_reader
 //= require_tree ../templates
 //= require_tree ./models
@@ -23,4 +24,3 @@
 //= require_tree ./views/feeds
 //= require_tree ./routers
 //= require_tree .
-

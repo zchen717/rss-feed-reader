@@ -1,5 +1,7 @@
 <h1>Feeds</h1>
 
+<div class="new_feed"></div>
+
 <ul>
   <% feeds.each( function (feed) { %>
     <li><a href="#/feeds/<%=feed.id%>"><%= feed.escape("title") %></a></li>  

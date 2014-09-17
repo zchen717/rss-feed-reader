@@ -2,13 +2,9 @@
 
 <h6><a><%= feed.escape('url') %></a></h6>
 
-<ul>
-  <% entries.each(function (entry) { %>
-    <li>
-      <ul>
-        <li><%= entry.escape('title') %></li>
-        <li><%= entry.escape('url') %></li>
-      </ul>
-    </li>
-  <% })%>
-</ul>
+<div class="btn-group">
+  <button class="delete btn btn-default">Delete Feed</button>
+  <button class="refresh btn btn-default">Refresh Entries</button>
+</div>
+
+<ul class="entries"></ul>

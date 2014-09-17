@@ -2,20 +2,11 @@ App.Routers.AppRouter = Backbone.Router.extend({
   routes: {
     "": "feedsIndex",
     "feeds/:id": "feedShow",
+    "users": "users"
   },
   
   initialize: function (options) {
     this.$el = options.$el;
-  },
-  
-  feedsIndex: function () {
-    App.Collections.feeds.fetch();
-    
-    var index = new App.Views.FeedsIndex({
-      collection: App.Collections.feeds
-    });
-    
-    this._swapView(index);
   },
   
   feedShow: function (id) {
@@ -23,10 +14,20 @@ App.Routers.AppRouter = Backbone.Router.extend({
     
     var show = new App.Views.FeedShow({
       model:      feed,
-      collection: feed.entries()
+      collection: App.Collections.feeds
     });
     
     this._swapView(show);
+  },
+  
+  users: function () {
+    var user = new App.Models.User();
+    
+    var newUser = new App.Views.UserNew({
+      model: user
+    });
+    
+    this._swapView(newUser);
   },
   
   _swapView: function (view) {
