@@ -37,5 +37,5 @@ App.Routers.AppRouter = Backbone.Router.extend({
     
     this.$el.html(view.render().$el);
     this.currentView = view;
-  },
+  }
 });
